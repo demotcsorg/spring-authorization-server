@@ -8,6 +8,7 @@ pluginManagement {
 plugins {
 	id "com.gradle.enterprise" version "3.8"
 	id "io.spring.ge.conventions" version "0.0.9"
+	id 'maven-publish'
 }
 
 rootProject.name = 'spring-authorization-server'
@@ -25,4 +26,17 @@ buildFiles.each { File buildFile ->
 	project.name = projectName
 	project.projectDir = buildFile.parentFile
 	project.buildFileName = buildFile.name
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = "https://maven.pkg.github.com/emyasa/spring-authorization-server"
+      credentials {
+        username = System.getenv("GITHUB_ACTOR")
+        password = System.getenv("GITHUB_TOKEN")
+      }
+    }
+  }
 }
