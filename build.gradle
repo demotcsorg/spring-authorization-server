@@ -48,6 +48,11 @@ nohttp {
 	allowlistFile = project.file("etc/nohttp/allowlist.lines")
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 publishing {
   repositories {
     maven {
@@ -61,10 +66,11 @@ publishing {
   }
 
   publications {
-    oauth2-authorization-server(MavenPublication) {
+    maven(MavenPublication) {
 	  groupId = "org.springframework.security"
 	  artifactId = "spring-security-oauth2-authorization-server"
 	  version = "0.2.3-SNAPSHOT"
+
       from components.java
     }
   }
