@@ -22,7 +22,6 @@ apply plugin: 'io.spring.nohttp'
 apply plugin: 'locks'
 apply plugin: 'io.spring.convention.root'
 apply plugin: 'maven-publish'
-apply plugin: 'java'
 
 group = 'org.springframework.security'
 description = 'Spring Authorization Server'
@@ -60,11 +59,12 @@ publishing {
     }
   }
   publications {
-    gpr(MavenPublication) {
+    maven(MavenPublication) {
 	  groupId = "org.springframework.security"
 	  artifactId = "spring-security-oauth2-authorization-server"
 	  version = "0.2.3-SNAPSHOT"
-      from(components.java)
+
+      from components.java
     }
   }
 }
