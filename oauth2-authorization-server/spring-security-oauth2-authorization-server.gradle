@@ -1,6 +1,5 @@
 apply plugin: 'io.spring.convention.spring-module'
 apply plugin: 'maven-publish'
-apply plugin: 'java'
 
 dependencies {
 	compile 'org.springframework.security:spring-security-config'
@@ -43,9 +42,4 @@ publishing {
       }
     }
   }
-    publications {
-        gpr(MavenPublication) {
-            from(components.java)
-        }
-    }
 }
