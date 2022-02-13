@@ -22,6 +22,7 @@ apply plugin: 'io.spring.nohttp'
 apply plugin: 'locks'
 apply plugin: 'io.spring.convention.root'
 apply plugin: 'maven-publish'
+apply plugin: 'java'
 
 group = 'org.springframework.security'
 description = 'Spring Authorization Server'
