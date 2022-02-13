@@ -58,4 +58,14 @@ publishing {
       }
     }
   }
+  
+  publications {
+    maven(MavenPublication) {
+	  groupId = "org.springframework.security"
+	  artifactId = "spring-security-oauth2-authorization-server"
+	  version = "0.2.3-SNAPSHOT"
+
+      from components.java
+    }
+  }
 }
