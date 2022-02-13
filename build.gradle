@@ -69,4 +69,6 @@ publishing {
       from components.java
     }
   }
+
+  println configurations.runtimeClasspath.allDependencies
 }
