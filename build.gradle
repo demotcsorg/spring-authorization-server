@@ -21,8 +21,6 @@ buildscript {
 apply plugin: 'io.spring.nohttp'
 apply plugin: 'locks'
 apply plugin: 'io.spring.convention.root'
-apply plugin: 'maven-publish'
-apply plugin: 'java'
 
 group = 'org.springframework.security'
 description = 'Spring Authorization Server'
@@ -46,34 +44,4 @@ subprojects {
 
 nohttp {
 	allowlistFile = project.file("etc/nohttp/allowlist.lines")
-}
-
-java {
-    withJavadocJar()
-    withSourcesJar()
-}
-
-publishing {
-  repositories {
-    maven {
-      name = "GitHubPackages"
-      url = "https://maven.pkg.github.com/emyasa/spring-authorization-server"
-      credentials {
-        username = System.getenv("GITHUB_ACTOR")
-        password = System.getenv("GITHUB_TOKEN")
-      }
-    }
-  }
-
-  publications {
-    maven(MavenPublication) {
-	  groupId = "org.springframework.security"
-	  artifactId = "spring-security-oauth2-authorization-server"
-	  version = "0.2.3-SNAPSHOT"
-
-      from components.java
-    }
-  }
-
-  println configurations.runtimeClasspath.allDependencies
 }
