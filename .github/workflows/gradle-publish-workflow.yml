@@ -7,7 +7,7 @@ name: Publish package to GitHub Packages
 on:
   push:
     branches:
-      - experimental/github-packages
+      - experimental/github-packages1
 jobs:
   publish:
     runs-on: ubuntu-latest 
