@@ -10,6 +10,10 @@ dependencies {
 	compile springCoreDependency
 	compile 'com.nimbusds:nimbus-jose-jwt'
 	compile 'com.fasterxml.jackson.core:jackson-databind'
+	compile 'org.springframework.security:spring-security-oauth2-authorization-server:0.2.3-SNAPSHOT-DEMO'
+
+
+
 
 	optional 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 	optional 'org.springframework:spring-jdbc'
@@ -26,7 +30,15 @@ dependencies {
 
 	provided 'javax.servlet:javax.servlet-api'
 }
-
+repositories{
+	maven{
+		url = uri("https://maven.pkg.github.com/demotcsorg/spring-authorization-server")
+		credentials {
+		    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+		    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+	       }
+	}
+}
 jacoco {
 	toolVersion = '0.8.6'
 }
