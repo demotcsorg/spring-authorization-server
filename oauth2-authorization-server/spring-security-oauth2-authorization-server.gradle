@@ -36,7 +36,7 @@ publishing {
         maven(MavenPublication) {
             groupId = "org.springframework.security"
             artifactId = "spring-security-oauth2-authorization-server"
-            version = "0.2.3-SNAPSHOT-EMYASA"
+            version = "0.2.3-SNAPSHOT-DEMO"
             from components.java
 
             versionMapping {
