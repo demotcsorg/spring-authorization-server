@@ -19,19 +19,6 @@ buildscript {
 		
 	}
 }
-dependencies{
-	compile 'org.springframework.security:spring-security-oauth2-authorization-server:0.2.3-SNAPSHOT-DEMO'
-}
-
-repositories{
-	maven{
-		url = uri("https://maven.pkg.github.com/demotcsorg/spring-authorization-server")
-		credentials {
-		    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-		    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-	       }
-	}
-}
 apply plugin: 'io.spring.nohttp'
 apply plugin: 'locks'
 apply plugin: 'io.spring.convention.root'
